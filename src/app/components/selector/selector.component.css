@@ -1,0 +1,23 @@
+#selector {
+}
+
+#button {
+  float: left;
+  border-radius: 10px;
+  background-color: #ddd;
+  width: 1.2em;
+  height: 1.2em;
+  cursor:pointer;
+}
+
+span{
+  float: left;
+  margin-top: -0.3em;
+  margin-left: 0.3em;
+  font-size: 1.3em;
+  color: #555;
+}
+
+.selected {
+  background: #222 !important;
+}

@@ -1,0 +1,18 @@
+#todays-weather-box{
+  height: 75px;
+}
+#selector-box{
+  height: 75px;
+}
+#appmain {
+  //border: 1px solid black;
+  width: 520px;
+}
+
+.col {
+  border: 1px solid green;
+}
+
+.row {
+  //border: 1px solid blue;
+}

@@ -1,0 +1,17 @@
+  <div class="row">
+    <div class="col s12">
+      <span id="day">
+        {{this.date * 1000 | date: 'EEEE'}}
+      </span>
+      --
+      <span id="weather">
+        {{this.weather[0]}}
+      </span>
+    </div>
+    <div class="col s12">
+      <div id="icon"><i class="wi {{weatherIcon}}"></i></div>
+      <div id="temperature" *ngIf="isDegreeTypeC">{{this.temp_c}}</div>
+      <div id="temperature" *ngIf="!isDegreeTypeC">{{this.temp_f}}</div>
+      <sup id="cfselect" (click)="onClickDegSelector()"><span id="deg-c" [class.selected]="isDegreeTypeC">°C</span>|<span id="deg-f" [class.selected]="!isDegreeTypeC">°F</span></sup>
+    </div>
+  </div>

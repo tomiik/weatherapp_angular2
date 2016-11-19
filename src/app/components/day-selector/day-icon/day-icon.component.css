@@ -1,0 +1,54 @@
+div {
+  display: inline-block;
+  border-style: solid;
+  border-color: #ddd;
+  border-radius: 4px;
+  border-width: 1px;
+}
+div:hover {
+  box-shadow: 2px 2px 2px #888;
+}
+
+.selected {
+  border-color: #aaa;
+  box-shadow: 2px 2px 2px #444;
+}
+#selector{
+  position: relative;
+  height: 120px;
+  width: 100px;
+  margin: 0px;
+  padding: 0px;
+  cursor:pointer;
+
+}
+span {
+  position: absolute;
+  bottom: 0;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #555;
+}
+i {
+  color: #555;
+}
+#day{
+  top:0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  text-transform: uppercase;
+}
+#min {
+  left: 3px;
+}
+#max {
+  right: 3px;
+}
+#weather-icon{
+  margin: 0 auto;
+  font-size: 4em;
+  margin-top: 0.1em;
+  text-align: center;
+}
