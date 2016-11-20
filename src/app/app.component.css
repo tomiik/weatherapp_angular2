@@ -5,14 +5,36 @@
   height: 75px;
 }
 #appmain {
+  position: relative;
   //border: 1px solid black;
   width: 520px;
 }
 
 .col {
-  border: 1px solid green;
+  //border: 1px solid green;
 }
 
 .row {
   //border: 1px solid blue;
+}
+
+.loading {
+  visibility: hidden;
+}
+
+.hidden {
+  visibility: visible;
+}
+
+.loader {
+  visibility: hidden;
+}
+
+#loader {
+  position: absolute;
+  margin: 0 auto;
+  margin-top: 5em;
+  left: 0;
+  right: 0;
+
 }

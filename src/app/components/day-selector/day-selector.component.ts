@@ -8,8 +8,10 @@ import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 
 })
 export class DaySelectorComponent implements OnInit {
-  icons = [0,1,2,3,4];
-  constructor() { }
+  icons = [0, 1, 2, 3, 4];
+  loading = true;
+  constructor() {
+ }
 
   ngOnInit() {
   }

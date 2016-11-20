@@ -1,7 +1,6 @@
 chart{
+  position: relative;
   display:block !important;
   width: 100% !important;
   height: 160px;
-//  border-style: solid !important;
-//  border-color: red !important;
 }

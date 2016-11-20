@@ -1,4 +1,5 @@
-import { Component, OnInit,ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { WeatherService } from '../weather.service';
 
 @Component({
   selector: 'wa-country-entry',
@@ -7,13 +8,16 @@ import { Component, OnInit,ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class CountryEntryComponent implements OnInit {
-  countryname: string = "Hyderabad";
-  constructor() { }
+  cityname: string = 'Hyderabad';
+  loading: boolean = false;
+  constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
-
+    this.weatherService.loading.subscribe(loading => this.loading = loading);
   }
-  onClick(){
-    console.log(this.countryname)
+  onClick() {
+    if (this.loading === false) {
+      this.weatherService.getCurrentWeatherFromServer(this.cityname);
+    }
   }
 }

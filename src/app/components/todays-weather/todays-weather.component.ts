@@ -26,14 +26,16 @@ export class TodaysWeatherComponent implements OnInit {
 
 
   ngOnInit () {
+    this.refreshView();
+    this.weatherService.loading.subscribe(loading => this.refreshView());
+    this.weatherService.isDegreeTypeC.subscribe(isDegreeTypeC => this.isDegreeTypeC = isDegreeTypeC);
+  }
+  refreshView() {
     this.date = this.weatherService.getCurrentDate();
     this.weather = this.weatherService.getCurrentWeather();
     this.temp_c = this.weatherService.getCurrentTempC();
     this.temp_f = this.weatherService.getCurrentTempF();
-    this.weatherService.isDegreeTypeC.subscribe(data => {this.receivedData = data})
     this.weatherIcon = Weather.getIcon(this.weather[1]);
-    console.log("weatherIcon")
-    console.log(this.weatherIcon)
   }
   onClickDegSelector(){
     console.log("onClickDegSelector()")

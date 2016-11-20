@@ -11,8 +11,10 @@ import { WeatherService } from './components'
 })
 export class AppComponent implements OnInit {
   title = 'app works!';
+  loading = true;
   constructor(private weatherService: WeatherService){
     this.weatherService.ngOnInit();
+    this.weatherService.loading.subscribe(loading => this.loading = loading);
   }
   ngOnChanges()
   {

@@ -9,7 +9,7 @@ sup {
 }
 #icon{
   float: left;
-  margin-top: -1.2em;
+  margin-top: 0em;
 }
 #temperature{
   float: left;
@@ -21,7 +21,7 @@ sup {
 }
 
 i {
-  font-size: 5em;
+  font-size: 3em;
   padding: 0;
   margin-right: 0.2em;
 }

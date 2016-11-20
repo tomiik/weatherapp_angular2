@@ -10,6 +10,7 @@ import { WeatherService } from '../weather.service';
   })
 export class ChartComponent implements OnInit {
   options: Object;
+  loading: boolean = true;
   constructor(private weatherService: WeatherService) {
       this.options = {
           title : { text : 'simple chart' },
@@ -19,38 +20,42 @@ export class ChartComponent implements OnInit {
       };
   }
 
-  ngOnInit(){
-    this.weatherService.isDegreeTypeC.subscribe(isDegreeTypeC => {this.refreshView()})
-    this.weatherService.selectedDay.subscribe(selectedDay => {this.refreshView()})
-    this.weatherService.selectedDatatype.subscribe(selectedDatatype => {this.refreshView(selectedDatatype)})
+  ngOnInit() {
+    this.weatherService.isDegreeTypeC.subscribe(isDegreeTypeC => {this.refreshView(); });
+    this.weatherService.selectedDay.subscribe(selectedDay => {this.refreshView(); });
+    this.weatherService.selectedDatatype.subscribe(selectedDatatype => {this.refreshView(selectedDatatype); });
+    this.weatherService.loading.subscribe(loading => this.refreshView());
   }
 
-  refreshView(selectedDatatype = ""){
+  refreshView(selectedDatatype = '') {
 
-    var params = {
+    let params = {
         title : { text : 'simple chart' },
         series: [{
             data: this.weatherService.getWindArray(),
         }]
     };
-    console.log(this.weatherService.getDates());
-    console.log(this.weatherService.getWindArray());
-    if(selectedDatatype === ""){
-      this.options = this.simpleChart("Temperature", this.weatherService.getDates(),this.weatherService.getTemperatureArray(), this.weatherService.getCurrentTemperatureUnit());
-    }else if(selectedDatatype === "Pressure"){
-      this.options = this.simpleChart("Pressure", this.weatherService.getDates(),this.weatherService.getPressureArray(), "Pa");
-    }else if(selectedDatatype === "Wind"){
-      this.options = this.simpleChart("Wind", this.weatherService.getDates(),this.weatherService.getWindArray(), this.weatherService.getCurrentWindUnit());
-    }else if(selectedDatatype === "Humidity"){
-      this.options = this.simpleChart("Humidity", this.weatherService.getDates(),this.weatherService.getHumidityArray(), "%");
+    // console.log(this.weatherService.getDates());
+    // console.log(this.weatherService.getWindArray());
+    if (selectedDatatype === '') {
+      this.options = this.simpleChart('Temperature', this.weatherService.getDates(), this.weatherService.getTemperatureArray(), this.weatherService.getCurrentTemperatureUnit());
+    }else if ( selectedDatatype === 'Pressure') {
+      this.options = this.simpleChart('Pressure', this.weatherService.getDates(), this.weatherService.getPressureArray(), 'Pa');
+    }else if (selectedDatatype === 'Wind') {
+      this.options = this.simpleChart('Wind', this.weatherService.getDates(), this.weatherService.getWindArray(), this.weatherService.getCurrentWindUnit());
+    }else if (selectedDatatype === 'Humidity') {
+      this.options = this.simpleChart('Humidity', this.weatherService.getDates(), this.weatherService.getHumidityArray(), '%');
     }
-    console.log(this.options)
+    this.loading = false;
+    console.log("loading:");
+    console.log(this.loading)
+    // console.log(this.options)
   }
 
   simpleChart (title, dates,temps,unit) {
     // console.log(dummy);
-    //console.log(dates);
-    //console.log(temps);
+    // console.log(dates);
+    // console.log(temps);
     let ret = {
       // chart: {
       //   type: 'line'
@@ -68,14 +73,14 @@ export class ChartComponent implements OnInit {
         valueSuffix: unit
       },
       yAxis: {
-         title:{
-           text: title + " [" + unit + "]"
+         title: {
+           text: title + ' [' + unit + ']'
          }
       },
       xAxis: {
          categories: dates
       },
-       credits:{
+       credits: {
         enabled: false
       },
       // plotOptions: {
@@ -86,12 +91,12 @@ export class ChartComponent implements OnInit {
       //     enableMouseTracking: true
       //   }
       // },
-      legend:{
+      legend: {
        enabled: false
       },
-      //series: dummy
-      series: [{data:temps}]
-    }
+      // series: dummy
+      series: [{data: temps}]
+    };
     return ret;
   }
 }
