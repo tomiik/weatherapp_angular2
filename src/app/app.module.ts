@@ -9,8 +9,8 @@ import { CountryInfoComponent } from './components';
 
 import { ChartModule } from 'angular2-highcharts';
 
-import { WeatherService,TodaysWeatherComponent,SelectorComponent, ChartComponent,DayIconComponent,DaySelectorComponent } from './components';
-//import { MaterializeDirective } from "angular2-materialize";
+import { WeatherService,TodaysWeatherComponent, SelectorComponent, ChartComponent, DayIconComponent, DaySelectorComponent } from './components';
+// import { MaterializeDirective } from "angular2-materialize";
 
 
 @NgModule({

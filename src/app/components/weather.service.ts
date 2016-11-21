@@ -2,8 +2,8 @@ import { Injectable, OnInit } from '@angular/core';
 import { CURRENT, FORECAST} from './mockdata';
 import { Util, Getarray } from './lib';
 import { ENUM_DEG_TYPE, ENUM_MAX_MIN, ENUM_WEATHER } from './enum';
-import { Observable, Observer, BehaviorSubject } from 'rxjs';
-import { Headers, Http } from '@angular/http';
+import { BehaviorSubject } from 'rxjs';
+import { Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -67,7 +67,7 @@ export class WeatherService implements OnInit {
                .toPromise()
                // .then(response => this.currentData = response.json().data)
                .then(response => this.currentData = response.json())
-               //.then(response => this.refresh())
+               // .then(response => this.refresh())
                .then(response => this.getForecastWeatherFromServer(this.cityName))
                .catch(this.handleError);
   }
