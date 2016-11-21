@@ -39,10 +39,9 @@ export class TodaysWeatherComponent implements OnInit {
   }
   onClickDegSelector(){
     console.log("onClickDegSelector()")
-    this.weatherService.toggleDegreeType();
-    this.isDegreeTypeC = !this.isDegreeTypeC;
+    //this.weatherService.toggleDegreeType();
 //    console.log("onClickDegSelector()" + this.isDegreeTypeC);
-    this.weatherService.isDegreeTypeC.next(this.isDegreeTypeC);
+    this.weatherService.isDegreeTypeC.next(!this.isDegreeTypeC);
 
   }
 
