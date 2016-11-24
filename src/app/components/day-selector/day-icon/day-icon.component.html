@@ -1,9 +1,9 @@
-<div id="selector" (click)="onClick(icon)" [class.selected]="selectedDay === icon">
+<div id="selector" class="{{selectedSize}}" (click)="onClick(icon)" [class.selected]="selectedDay === icon" [class.hidden]='day === ""'>
   <span id="day">{{day}}</span>
   <br>
   <i id="weather-icon" class="wi {{weatherIcon}}"></i>
   <br>
   <span id="min">{{min}}{{unit}}</span>
 
-  <span id="max">{{max}}{{unit}}</span>
+  <span id="max" class="{{selectedSize}}">{{max}}{{unit}}</span>
 </div>

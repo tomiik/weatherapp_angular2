@@ -2,5 +2,5 @@ chart{
   position: relative;
   display:block !important;
   width: 100% !important;
-  height: 160px;
+  height: 100% !important;
 }

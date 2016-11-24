@@ -1,5 +1,7 @@
 import { Component, ViewEncapsulation, Input, OnInit, AfterContentInit } from '@angular/core';
 import { WeatherService } from '../weather.service';
+import { ThemeService } from '../theme.service';
+
 @Component({
   selector: 'wa-selector',
   templateUrl: './selector.component.html',
@@ -14,8 +16,9 @@ export class SelectorComponent implements OnInit, AfterContentInit {
   value: number;
   receivedData;
   selectedDatatype = 'pressure';
+  selectedTheme: string = 'theme-normal';
 
-  constructor(private weatherService: WeatherService) { }
+  constructor(private weatherService: WeatherService, private themeService: ThemeService) { }
 
   ngAfterContentInit() {
     // console.log("AfterViewInit()");
@@ -26,6 +29,7 @@ export class SelectorComponent implements OnInit, AfterContentInit {
     this.weatherService.isDegreeTypeC.subscribe(isDegreeTypeC => {this.refreshView(); });
     this.weatherService.selectedDatatype.subscribe(selectedDatatype => {this.refreshView(selectedDatatype); });
     this.weatherService.loading.subscribe(loading => this.refreshView());
+    this.themeService.selectedTheme.subscribe(selectedTheme => this.selectedTheme = selectedTheme);
   }
 
   onClick(value) {

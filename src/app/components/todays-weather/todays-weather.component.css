@@ -1,4 +1,4 @@
-span {
+#weather {
   font-size: 1.2em;
   font-style: bold;
 
@@ -7,7 +7,8 @@ sup {
   top:0.2em;
   font-size: 1.4em;
 }
-#icon{
+
+#icon-container{
   float: left;
   margin-top: 0em;
 }
@@ -15,25 +16,32 @@ sup {
   float: left;
   font-size: 3.5em;
   display: inline-block;
-  color: #333;
+  //color: #333;
   padding-top:0;
   margin-top: -0.3em;
 }
+#temperature.size-mini{
+  font-size: 8em !important;
+}
 
-i {
+#icon {
   font-size: 3em;
   padding: 0;
   margin-right: 0.2em;
 }
+#icon.size-mini {
+  font-size: 8em !important;
+}
+
 
 #deg-c, #deg-f{
-  color: #ddd;
+  //color: #ddd;
   -ms-user-select: none;
  -webkit-user-select: none;
  -moz-user-select: none;
  cursor: pointer;
 }
 
-.selected {
-  color: #111 !important;
+.not-selected {
+  color: #888 !important;
 }

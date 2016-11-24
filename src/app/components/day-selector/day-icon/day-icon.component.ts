@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { WeatherService } from '../../weather.service';
 import { Util, Weather } from '../../lib/';
+import { ThemeService } from '../../theme.service';
 
 @Component({
   selector: 'wa-day-icon',
@@ -20,7 +21,9 @@ export class DayIconComponent implements OnInit {
   day = 0;
   selectedDay = 0;
   weatherIcon: string;
-  constructor(private weatherService: WeatherService) { }
+  selectedTheme: string = 'theme-normal';
+  selectedSize: string = 'size-normal';
+  constructor(private weatherService: WeatherService, private themeService: ThemeService) { }
 
   ngOnInit() {
     this.refreshView();
@@ -30,13 +33,16 @@ export class DayIconComponent implements OnInit {
         .subscribe(selectedDay => {this.selectedDay = selectedDay; });
     this.weatherService.loading
         .subscribe(loading => this.refreshView());
+    this.themeService.selectedTheme.subscribe(selectedTheme => this.selectedTheme = selectedTheme);
+    this.themeService.selectedSize.subscribe(selectedSize => this.selectedSize = selectedSize);
+
   }
   onClick(day) {
     console.log('day' + day);
     this.weatherService.setDay(day);
   }
   refreshView() {
-    console.log("day-icon.refreshView()");
+    console.log('day-icon.refreshView()');
     this.maxTemps = this.weatherService.getMaxTemps();
     this.minTemps = this.weatherService.getMinTemps();
     this.weathers = this.weatherService.getWeathers();

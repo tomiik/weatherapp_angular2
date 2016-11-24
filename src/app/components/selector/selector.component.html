@@ -1,2 +1,4 @@
-  <div id="button" (click)="onClick(title)" [class.selected]="selectedDatatype === title"></div>
-  <span>{{title}}: {{value}} {{unit}}</span>
+<div class="{{selectedTheme}}">
+  <div id="button" class="{{selectedTheme}}" (click)="onClick(title)" [class.selected]="selectedDatatype === title"></div>
+  <span class="{{selectedTheme}}">{{title}}: {{value}} {{unit}}</span>
+</div>

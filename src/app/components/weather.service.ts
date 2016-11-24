@@ -278,6 +278,16 @@ export class WeatherService implements OnInit {
     ret = ret[this.selectedDay.getValue()];
     return ret;
   }
+  getHours() {
+    let dates = this.getDates();
+    let ret = [];
+    for (let i = 0; i < dates.length; i++ ){
+      ret.push(dates[i].slice(4, 7));
+    }
+    console.log('getHours():');
+    console.log(ret);
+    return ret;
+  }
   getMaxTemps() {
     let ret = this.temps_c_max_2d;
     if (!this.isDegreeTypeC.getValue()) {

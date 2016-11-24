@@ -9,7 +9,13 @@ import { CountryInfoComponent } from './components';
 
 import { ChartModule } from 'angular2-highcharts';
 
-import { WeatherService,TodaysWeatherComponent, SelectorComponent, ChartComponent, DayIconComponent, DaySelectorComponent } from './components';
+import {  WeatherService,
+          ThemeService,
+          TodaysWeatherComponent,
+          SelectorComponent,
+          ChartComponent,
+          DayIconComponent,
+          DaySelectorComponent } from './components';
 // import { MaterializeDirective } from "angular2-materialize";
 
 
@@ -31,7 +37,10 @@ import { WeatherService,TodaysWeatherComponent, SelectorComponent, ChartComponen
     HttpModule,
     ChartModule
   ],
-  providers: [WeatherService],
+  providers: [
+    WeatherService,
+    ThemeService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

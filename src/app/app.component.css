@@ -1,15 +1,36 @@
+
 #todays-weather-box{
   height: 75px;
 }
+#todays-weather-box.size-mini{
+  height: 45px !important;
+}
 #selector-box{
   height: 75px;
+}
+#selector-box.size-mini{
+  height: 45px !important;
 }
 #appmain {
   position: relative;
   //border: 1px solid black;
   width: 520px;
 }
-
+#appmain.size-mini{
+  width: 270px !important;
+}
+#chart-box{
+  height: 160px;
+}
+#chart-box.size-mini{
+  height: 80px;
+}
+.size-mini{
+  font-size: 0.5em;
+}
+.size-tiny{
+  font-size: 0.3em;
+}
 .col {
   //border: 1px solid green;
 }
@@ -30,11 +51,31 @@
   visibility: hidden;
 }
 
+.dark{
+  background-color: #333;
+  color: #ddd;
+}
+
+.theme-normal {
+  background: #ddd;
+  color: #333;
+}
+.theme-dark {
+  background: #333;
+  color: #ddd;
+}
+.theme-cold {
+  background: #06e;
+  color: #eee;
+}
+.theme-warm {
+  background: #f82;
+  color: #eee;
+}
 #loader {
   position: absolute;
   margin: 0 auto;
   margin-top: 5em;
   left: 0;
   right: 0;
-
 }

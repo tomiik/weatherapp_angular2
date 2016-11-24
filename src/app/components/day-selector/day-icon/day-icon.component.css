@@ -1,7 +1,6 @@
 div {
   display: inline-block;
   border-style: solid;
-  border-color: #ddd;
   border-radius: 4px;
   border-width: 1px;
 }
@@ -10,7 +9,6 @@ div:hover {
 }
 
 .selected {
-  border-color: #aaa;
   box-shadow: 2px 2px 2px #444;
 }
 #selector{
@@ -20,17 +18,16 @@ div:hover {
   margin: 0px;
   padding: 0px;
   cursor:pointer;
-
+}
+#selector.size-mini{
+  width: 50px;
+  height: 80px;
 }
 span {
   position: absolute;
   bottom: 0;
   font-size: 0.9em;
   font-weight: bold;
-  color: #555;
-}
-i {
-  color: #555;
 }
 #day{
   top:0;
@@ -46,9 +43,15 @@ i {
 #max {
   right: 3px;
 }
+#max.size-mini{
+  margin-bottom: 1em;
+}
 #weather-icon{
   margin: 0 auto;
   font-size: 4em;
   margin-top: 0.1em;
   text-align: center;
+}
+.hidden {
+  visibility: hidden;
 }

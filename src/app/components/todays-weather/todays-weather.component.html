@@ -1,17 +1,17 @@
-  <div class="row">
-    <div class="col s12">
-      <span id="day">
+  <div>
+    <div class="col s12 {{selectedTheme}}">
+      <span id="day" class="{{selectedTheme}}">
         {{this.date * 1000 | date: 'EEEE'}}
       </span>
       --
-      <span id="weather">
+      <span id="weather" class="{{selectedTheme}}">
         {{this.weather[0]}}
       </span>
     </div>
-    <div class="col s12">
-      <div id="icon"><i class="wi {{weatherIcon}}"></i></div>
-      <div id="temperature" *ngIf="isDegreeTypeC">{{this.temp_c}}</div>
-      <div id="temperature" *ngIf="!isDegreeTypeC">{{this.temp_f}}</div>
-      <sup id="cfselect" (click)="onClickDegSelector()"><span id="deg-c" [class.selected]="isDegreeTypeC">°C</span>|<span id="deg-f" [class.selected]="!isDegreeTypeC">°F</span></sup>
+    <div class="col s12 {{selectedTheme}}">
+      <div id="icon-container"><i id="icon" class="wi {{weatherIcon}}"></i></div>
+      <div id="temperature" class="{{selectedSize}}" *ngIf="isDegreeTypeC">{{this.temp_c}}</div>
+      <div id="temperature" class="{{selectedSize}}" *ngIf="!isDegreeTypeC">{{this.temp_f}}</div>
+      <sup id="cfselect" (click)="onClickDegSelector()"><span id="deg-c" [class.not-selected]="!isDegreeTypeC">°C</span>|<span id="deg-f" [class.not-selected]="isDegreeTypeC">°F</span></sup>
     </div>
   </div>

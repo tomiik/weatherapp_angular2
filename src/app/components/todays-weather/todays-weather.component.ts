@@ -1,7 +1,8 @@
 import { Component, OnInit, OnChanges,ViewEncapsulation } from '@angular/core';
 import { WeatherService } from '../weather.service';
+import { ThemeService } from '../theme.service';
 import { Observable, Observer, BehaviorSubject } from 'rxjs';
-import { Weather } from '../lib/'
+import { Weather } from '../lib/';
 
 @Component({
   selector: 'wa-todays-weather',
@@ -14,17 +15,20 @@ export class TodaysWeatherComponent implements OnInit {
   weather: string[];
   temp_c: number;
   temp_f: number;
-  isDegreeTypeC:boolean;
+  isDegreeTypeC: boolean;
   receivedData;
-  weatherIcon;
-  constructor(private weatherService: WeatherService) { }
+  weatherIcon: string;
+  selectedTheme: string = 'theme-normal';
+  selectedSize: string = 'theme-size';
+  constructor(private weatherService: WeatherService, private themeService: ThemeService) {
+    this.themeService.selectedTheme.subscribe(selectedTheme => this.selectedTheme = selectedTheme);
+    this.themeService.selectedSize.subscribe(selectedSize => this.selectedSize = selectedSize);
 
-  ngOnChanges()
-  {
-    console.log("todaysWeather.OnChanges()");
   }
 
-
+  ngOnChanges() {
+    console.log('todaysWeather.OnChanges()');
+  }
   ngOnInit () {
     this.refreshView();
     this.weatherService.loading.subscribe(loading => this.refreshView());
@@ -37,9 +41,9 @@ export class TodaysWeatherComponent implements OnInit {
     this.temp_f = this.weatherService.getCurrentTempF();
     this.weatherIcon = Weather.getIcon(this.weather[1]);
   }
-  onClickDegSelector(){
-    console.log("onClickDegSelector()")
-    //this.weatherService.toggleDegreeType();
+  onClickDegSelector() {
+    console.log('onClickDegSelector()');
+    // this.weatherService.toggleDegreeType();
 //    console.log("onClickDegSelector()" + this.isDegreeTypeC);
     this.weatherService.isDegreeTypeC.next(!this.isDegreeTypeC);
 

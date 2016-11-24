@@ -1,10 +1,11 @@
-import { Component, OnInit,ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'wa-day-selector',
   templateUrl: './day-selector.component.html',
   styleUrls: ['./day-selector.component.css'],
-  encapsulation: ViewEncapsulation.Emulated
+  // encapsulation: ViewEncapsulation.Emulated
 
 })
 export class DaySelectorComponent implements OnInit {

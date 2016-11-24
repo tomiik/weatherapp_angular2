@@ -1,5 +1,6 @@
-import { Component, OnInit, AfterViewInit,ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { WeatherService } from '../weather.service';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'wa-country-info',
@@ -10,8 +11,16 @@ import { WeatherService } from '../weather.service';
 export class CountryInfoComponent implements OnInit, AfterViewInit {
   cityName: string = 'NoName';
   countryCode: string = 'NoName';
-  constructor(private weatherService: WeatherService) { }
-
+  selectedTheme: string = 'theme-normal';
+  constructor(private weatherService: WeatherService, private themeService: ThemeService) {
+    this.themeService.selectedTheme.subscribe(selectedTheme => this.selectedTheme = selectedTheme);
+  }
+  changeTheme() {
+    this.themeService.changeTheme();
+  }
+  changeSize() {
+    this.themeService.changeSize();
+  }
   ngOnInit () {
     this.weatherService.loading
         .subscribe(loading => this.refreshView());
