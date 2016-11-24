@@ -1,6 +1,6 @@
 import { AngularVerPage } from './app.po';
 
-describe('angular-ver App', function() {
+describe('weatherapp_angular2 App', function() {
   let page: AngularVerPage;
 
   beforeEach(() => {
