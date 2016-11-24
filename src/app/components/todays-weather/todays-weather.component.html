@@ -9,7 +9,7 @@
       </span>
     </div>
     <div class="col s12 {{selectedTheme}}">
-      <div id="icon-container"><i id="icon" class="wi {{weatherIcon}}"></i></div>
+      <div id="icon-container"><i id="icon" class="wi {{weatherIcon}} {{selectedSize}}"></i></div>
       <div id="temperature" class="{{selectedSize}}" *ngIf="isDegreeTypeC">{{this.temp_c}}</div>
       <div id="temperature" class="{{selectedSize}}" *ngIf="!isDegreeTypeC">{{this.temp_f}}</div>
       <sup id="cfselect" (click)="onClickDegSelector()"><span id="deg-c" [class.not-selected]="!isDegreeTypeC">°C</span>|<span id="deg-f" [class.not-selected]="isDegreeTypeC">°F</span></sup>

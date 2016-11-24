@@ -97,8 +97,8 @@ export class ChartComponent implements OnInit {
       this.options = this.simpleChart('Humidity', this.weatherService.getHumidityArray(), '%');
     }
     this.loading = false;
-    console.log('loading:');
-    console.log(this.loading);
+    // console.log('loading:');
+    // console.log(this.loading);
     // console.log(this.options)
   }
 
@@ -176,7 +176,7 @@ export class ChartComponent implements OnInit {
         spacingRight: 0,
         spacingBottom: 3,
         spacingLeft: 0,
-        marginLeft: this.marginLeft,
+        // marginLeft: this.marginLeft,
       },
       // series: dummy
       series: [{data: temps}],

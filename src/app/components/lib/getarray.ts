@@ -8,13 +8,13 @@ export var Getarray = {
   init: function(){
   },
   date: function(data, format){
-    console.log('getDateArray()');
+    // console.log('getDateArray()');
     let array = [];
     for (let i = 0; i < data.list.length; i++) {
-      let date = Util.convDate((data.list[i]).dt,format);
+      let date = Util.convDate((data.list[i]).dt, format);
       array.push(date);
     }
-    console.log(array);
+    // console.log(array);
     return array;
   },
   temp: function(data, type, mode){

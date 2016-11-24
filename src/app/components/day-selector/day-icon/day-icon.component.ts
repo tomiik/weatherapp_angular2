@@ -38,11 +38,11 @@ export class DayIconComponent implements OnInit {
 
   }
   onClick(day) {
-    console.log('day' + day);
+    // console.log('day' + day);
     this.weatherService.setDay(day);
   }
   refreshView() {
-    console.log('day-icon.refreshView()');
+    // console.log('day-icon.refreshView()');
     this.maxTemps = this.weatherService.getMaxTemps();
     this.minTemps = this.weatherService.getMinTemps();
     this.weathers = this.weatherService.getWeathers();
